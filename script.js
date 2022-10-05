@@ -12,6 +12,8 @@ for (let i = 0; i < navs.length; i++) {
  */
 function createNavClickHandler(nav) {
   return (e) => {
+    e.preventDefault();
+
     if (e.target.nodeName) {
       // get the target container
       let targetContainer = document.getElementById(e.target.dataset["target"]);
