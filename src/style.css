@@ -13,5 +13,36 @@
 
 .main-nav ul li a {
   display: block;
-  @apply p-4 py-6;
+  font-weight: 500;
+  border-bottom: 4px solid;
+  @apply p-6 text-slate-500 border-transparent relative;
+}
+
+.main-nav ul li a:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 4px;
+  right: 0;
+  bottom: 0;
+  @apply bg-transparent -z-10 rounded-md transition-all;
+}
+.main-nav ul li a:hover:before {
+  @apply bg-slate-100;
+}
+
+.main-nav ul li a.active {
+  @apply text-blue-500 border-blue-500;
+}
+.main-nav ul li a.active:before {
+  display: none !important;
+}
+
+.panel {
+  @apply rounded shadow bg-white p-4;
+}
+
+h3 {
+  @apply text-xl font-bold;
 }
