@@ -32,10 +32,10 @@
   @apply bg-slate-100;
 }
 
-.main-nav ul li a.active {
+.main-nav ul li.active a {
   @apply text-blue-500 border-blue-500;
 }
-.main-nav ul li a.active:before {
+.main-nav ul li.active a:before {
   display: none !important;
 }
 
