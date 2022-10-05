@@ -555,10 +555,6 @@ video {
   position: relative;
 }
 
-.-left-3 {
-  left: -0.75rem;
-}
-
 .z-10 {
   z-index: 10;
 }
@@ -591,10 +587,6 @@ video {
   margin-bottom: 1rem;
 }
 
-.ml-4 {
-  margin-left: 1rem;
-}
-
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -605,6 +597,10 @@ video {
 
 .mr-4 {
   margin-right: 1rem;
+}
+
+.ml-4 {
+  margin-left: 1rem;
 }
 
 .ml-2 {
@@ -911,6 +907,7 @@ video {
 }
 
 .main-nav {
+  position: relative;
   --tw-border-opacity: 1;
   border-top-color: rgb(203 213 225 / var(--tw-border-opacity));
   border-top-width: 1px;
@@ -987,6 +984,46 @@ h3 {
   border-width: 2px;
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
+.toggle {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .toggle {
+    display: none;
+  }
+}
+
+.toggle {
+  position: absolute;
+  top: 16px;
+  bottom: 16px;
+  left: 0;
+}
+
+.toggle:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -10;
+  border-radius: 0.375rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.toggle:hover:before {
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-slate-200:hover {

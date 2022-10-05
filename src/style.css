@@ -7,7 +7,7 @@
 }
 
 .main-nav {
-  @apply border-t-slate-300;
+  @apply border-t-slate-300 relative;
   border-top-width: 1px;
 }
 
@@ -49,4 +49,27 @@ h3 {
 
 .badges li {
   @apply w-10 h-10 rounded-full flex justify-center border-2 -ml-2 border-white items-center;
+}
+
+.toggle {
+  @apply px-4 sm:hidden;
+  position: absolute;
+  top: 16px;
+  bottom: 16px;
+  left: 0;
+}
+
+.toggle:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  @apply bg-slate-200 rounded-md -z-10 transition-all;
+}
+
+.toggle:hover:before {
+  @apply bg-slate-300;
 }
