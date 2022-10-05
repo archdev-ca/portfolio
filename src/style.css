@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .avatar {
-  @apply rounded-full overflow-hidden w-52 h-52 -mt-10 border-white border-4;
+  @apply rounded-full overflow-hidden -mt-10 border-white border-4 flex-shrink;
 }
 
 .main-nav {
