@@ -46,3 +46,7 @@
 h3 {
   @apply text-xl font-bold mb-4;
 }
+
+.badges li {
+  @apply w-10 h-10 rounded-full flex justify-center border-2 -ml-2 border-white items-center;
+}
