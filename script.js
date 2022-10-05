@@ -13,11 +13,15 @@ for (let i = 0; i < navs.length; i++) {
 function createNavClickHandler(nav) {
   return (e) => {
     if (e.target.nodeName) {
-      let targetContainer = e.target.dataset["target"];
+      let targetContainer = document.getElementById(e.target.dataset["target"]);
       for (let i = 0; i < nav.children.length; i++) {
         nav.children[i].classList.remove("active");
       }
       e.target.parentNode.classList.add("active");
+      for (let i = 0; i < targetContainer.parentNode.children.length; i++) {
+        targetContainer.parentNode.children[i].classList.add("hidden");
+      }
+      targetContainer.classList.remove("hidden");
     }
   };
 }
