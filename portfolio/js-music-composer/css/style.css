@@ -1,0 +1,461 @@
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+.icon {
+  font-family: "Material Icons Sharp";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: "liga";
+}
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-header {
+  background-color: #f73378;
+  background-image: linear-gradient(to bottom, #f73378, #dd2868);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.75);
+  padding: 10px;
+  position: relative;
+  z-index: 2;
+}
+.main-header > .title {
+  margin: 0;
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+}
+.main-header > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu-bar {
+  background-color: #eee;
+  display: flex;
+  flex-direction: row;
+}
+.menu-bar .last-visit {
+  position: relative;
+  top: 15px;
+  right: 15px;
+  margin-left: auto;
+}
+
+.menu-bar > ul {
+  margin: 0;
+  padding: 5px 15px;
+  list-style: none;
+}
+.menu-bar > ul > li {
+  display: inline-block;
+  margin-right: 15px;
+}
+.menu-bar > ul button {
+  padding: 5px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+.menu-bar > ul button > .icon {
+  margin-right: 5px;
+}
+.menu-bar > ul button:hover {
+  border-bottom: 2px solid #000;
+}
+
+.document-wrapper {
+  flex: 1;
+  background-color: #aaa;
+}
+.document-wrapper > .document-canvas {
+  margin: 30px;
+}
+
+#toolbar {
+  border-radius: 4px;
+  background-color: #eee;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+  padding: 15px;
+  max-width: 960px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+#toolbar > ul {
+  list-style: none;
+}
+#toolbar > ul > li {
+  display: inline-block;
+  margin: 0 15px;
+}
+#toolbar > ul > li .note-control {
+  display: block;
+  border: 1px solid transparent;
+  cursor: move;
+  background-color: transparent;
+}
+#toolbar > ul > li .note-control > img {
+  display: block;
+  height: 45px;
+}
+#toolbar > ul > li .note-control.note-1 img {
+  height: 14px;
+}
+#toolbar > ul > li .note-control.note-1s img {
+  height: 22px;
+}
+#toolbar > ul > li .note-control.rest-1 img {
+  height: 18px;
+}
+#toolbar > ul > li .note-control.rest-2 img {
+  height: 18px;
+}
+#toolbar > ul > li .note-control.rest-4 img {
+  height: 24px;
+}
+
+.document-canvas .page {
+  background-color: #fff;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 30px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+}
+.document-canvas .page #meta-title {
+  font-size: 24px;
+  width: 400px;
+  padding: 5px 15px;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 60px;
+}
+
+.staff-row {
+  border-left: 4px solid #000;
+}
+
+.staff {
+  position: relative;
+}
+.staff .hitareas {
+  display: flex;
+  position: absolute;
+  z-index: 2;
+  left: 60px;
+  right: 0;
+  top: -4px;
+}
+.staff .hitareas > .bar {
+  flex: 1;
+  position: relative;
+}
+.staff .hitareas > .bar:after {
+  content: " ";
+  width: 1px;
+  height: 65px;
+  position: absolute;
+  right: 0;
+  top: 4px;
+  background-color: #000;
+}
+.staff .hitareas > .bar > .notes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-evenly;
+}
+.staff .hitareas > .bar > .line, .staff .hitareas > .bar > .space {
+  position: relative;
+  z-index: 2;
+  height: 8px;
+}
+.staff .hitareas > .bar .note {
+  box-sizing: content-box;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  border: 1px solid transparent;
+  z-index: 4;
+}
+.staff .hitareas > .bar .note.selected {
+  border-color: #f00;
+}
+.staff .hitareas > .bar .note.note-1 {
+  width: 17px;
+  height: 12px;
+  background-image: url(../images/1-note.svg);
+}
+.staff .hitareas > .bar .note.note-2 {
+  width: 13.5px;
+  height: 45px;
+  background-image: url(../images/2-note.svg);
+}
+.staff .hitareas > .bar .note.note-4 {
+  width: 13.5px;
+  height: 45px;
+  background-image: url(../images/4-note.svg);
+}
+.staff .hitareas > .bar .note.note-8 {
+  width: 24px;
+  height: 45px;
+  background-image: url(../images/8-note.svg);
+}
+.staff .hitareas > .bar .note.note-16 {
+  width: 24px;
+  height: 45px;
+  background-image: url(../images/16-note.svg);
+}
+.staff .hitareas > .bar .note.note-1s {
+  width: 22.8px;
+  height: 22px;
+  background-image: url(../images/1s-note.svg);
+}
+.staff .hitareas > .bar .note.note-2s {
+  width: 13.5px;
+  height: 45px;
+  background-image: url(../images/2s-note.svg);
+}
+.staff .hitareas > .bar .note.note-4s {
+  width: 13.5px;
+  height: 45px;
+  background-image: url(../images/4s-note.svg);
+}
+.staff .hitareas > .bar .note.note-8s {
+  width: 24px;
+  height: 45px;
+  background-image: url(../images/8s-note.svg);
+}
+.staff .hitareas > .bar .note.note-16s {
+  width: 24px;
+  height: 45px;
+  background-image: url(../images/16s-note.svg);
+}
+.staff .hitareas > .bar .note.rest-1 {
+  width: 18px;
+  height: 18px;
+  background-image: url(../images/1rest.png);
+}
+.staff .hitareas > .bar .note.rest-2 {
+  width: 18px;
+  height: 18px;
+  background-image: url(../images/2rest.png);
+}
+.staff .hitareas > .bar .note.rest-4 {
+  width: 30px;
+  height: 30px;
+  background-image: url(../images/4rest.png);
+}
+.staff .hitareas > .bar .note.key-e2, .staff .hitareas > .bar .note.key-c4 {
+  bottom: 0;
+}
+.staff .hitareas > .bar .note.key-e2:after, .staff .hitareas > .bar .note.key-c4:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  height: 1px;
+  background-color: #000;
+  bottom: 5px;
+  left: -10px;
+  right: -10px;
+}
+.staff .hitareas > .bar .note.key-f2, .staff .hitareas > .bar .note.key-d4 {
+  bottom: 5px;
+}
+.staff .hitareas > .bar .note.key-g2, .staff .hitareas > .bar .note.key-e4 {
+  bottom: 13px;
+}
+.staff .hitareas > .bar .note.key-a2, .staff .hitareas > .bar .note.key-f4 {
+  bottom: 21px;
+}
+.staff .hitareas > .bar .note.key-b2, .staff .hitareas > .bar .note.key-g4 {
+  bottom: 29px;
+}
+.staff .hitareas > .bar .note.key-c3, .staff .hitareas > .bar .note.key-a4 {
+  bottom: 37px;
+}
+.staff .hitareas > .bar .note.key-d3, .staff .hitareas > .bar .note.key-b4 {
+  bottom: 45px;
+}
+.staff .hitareas > .bar .note.key-e3, .staff .hitareas > .bar .note.key-c5 {
+  bottom: 53px;
+}
+.staff .hitareas > .bar .note.key-f3, .staff .hitareas > .bar .note.key-d5 {
+  bottom: 61px;
+}
+.staff .hitareas > .bar .note.key-g3, .staff .hitareas > .bar .note.key-e5 {
+  bottom: 69px;
+}
+.staff .hitareas > .bar .note.key-a3, .staff .hitareas > .bar .note.key-f5 {
+  bottom: 77px;
+}
+.staff .hitareas > .bar .note.note-rest {
+  bottom: 50% !important;
+}
+.staff .hitareas > .bar .note.note-rest.rest-4 {
+  bottom: 40% !important;
+}
+.staff .hitareas > .bar > .hitarea.dragover {
+  background-color: rgba(0, 0, 255, 0.5);
+}
+.staff > .clef {
+  position: absolute;
+  width: 50px;
+  height: 110px;
+  left: 5px;
+  top: -10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+.staff.treble-clef > .clef {
+  background-image: url(../images/treble-clef.png);
+}
+.staff.bass-clef > .clef {
+  top: -22px;
+  background-image: url(../images/bass-clef.png);
+}
+.staff > .staff-lines {
+  flex: 1;
+  border-right: 1px solid #000;
+}
+.staff > .staff-lines > .line {
+  height: 1px;
+  background-color: #000;
+}
+.staff > .staff-lines > .space {
+  height: 15px;
+}
+
+.staff-row {
+  margin-bottom: 60px;
+}
+.staff-row .treble-clef {
+  margin-bottom: 60px;
+}
+
+.curtain {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.curtain .btn-close {
+  cursor: pointer;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.curtain > .load, .curtain > .alert, .curtain > .prompt {
+  min-width: 400px;
+  position: relative;
+}
+.curtain > .load > .load-content, .curtain > .load > .alert-content, .curtain > .load > .prompt-content, .curtain > .alert > .load-content, .curtain > .alert > .alert-content, .curtain > .alert > .prompt-content, .curtain > .prompt > .load-content, .curtain > .prompt > .alert-content, .curtain > .prompt > .prompt-content {
+  background-color: #fff;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  border-radius: 4px;
+}
+.curtain > .load > .load-content input, .curtain > .load > .alert-content input, .curtain > .load > .prompt-content input, .curtain > .alert > .load-content input, .curtain > .alert > .alert-content input, .curtain > .alert > .prompt-content input, .curtain > .prompt > .load-content input, .curtain > .prompt > .alert-content input, .curtain > .prompt > .prompt-content input {
+  font-size: 24px;
+  padding: 10px 15px;
+}
+.curtain > .load > .load-content .load-title,
+.curtain > .load > .load-content .alert-title, .curtain > .load > .alert-content .load-title,
+.curtain > .load > .alert-content .alert-title, .curtain > .load > .prompt-content .load-title,
+.curtain > .load > .prompt-content .alert-title, .curtain > .alert > .load-content .load-title,
+.curtain > .alert > .load-content .alert-title, .curtain > .alert > .alert-content .load-title,
+.curtain > .alert > .alert-content .alert-title, .curtain > .alert > .prompt-content .load-title,
+.curtain > .alert > .prompt-content .alert-title, .curtain > .prompt > .load-content .load-title,
+.curtain > .prompt > .load-content .alert-title, .curtain > .prompt > .alert-content .load-title,
+.curtain > .prompt > .alert-content .alert-title, .curtain > .prompt > .prompt-content .load-title,
+.curtain > .prompt > .prompt-content .alert-title {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.curtain > .load > .load-content .prompt-title, .curtain > .load > .alert-content .prompt-title, .curtain > .load > .prompt-content .prompt-title, .curtain > .alert > .load-content .prompt-title, .curtain > .alert > .alert-content .prompt-title, .curtain > .alert > .prompt-content .prompt-title, .curtain > .prompt > .load-content .prompt-title, .curtain > .prompt > .alert-content .prompt-title, .curtain > .prompt > .prompt-content .prompt-title {
+  font-size: 24px;
+  margin: 0;
+}
+.curtain > .load > .load-content button, .curtain > .load > .alert-content button, .curtain > .load > .prompt-content button, .curtain > .alert > .load-content button, .curtain > .alert > .alert-content button, .curtain > .alert > .prompt-content button, .curtain > .prompt > .load-content button, .curtain > .prompt > .alert-content button, .curtain > .prompt > .prompt-content button {
+  font-size: 14px;
+  background-color: #f73378;
+  border-radius: 4px;
+  color: #fff;
+  border: none;
+  width: 100%;
+  padding: 10px 15px;
+  display: block;
+  transition: all 0.3s ease;
+}
+.curtain > .load > .load-content button:hover, .curtain > .load > .alert-content button:hover, .curtain > .load > .prompt-content button:hover, .curtain > .alert > .load-content button:hover, .curtain > .alert > .alert-content button:hover, .curtain > .alert > .prompt-content button:hover, .curtain > .prompt > .load-content button:hover, .curtain > .prompt > .alert-content button:hover, .curtain > .prompt > .prompt-content button:hover {
+  background-color: #ee095a;
+}
+.curtain #load-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.curtain #load-list > li {
+  margin-bottom: 15px;
+}
+.curtain #load-list > li button {
+  font-weight: 700;
+  text-align: left;
+  background-color: transparent;
+  color: #000;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
+}

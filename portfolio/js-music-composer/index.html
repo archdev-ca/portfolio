@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>JavaScript Advanced - Project</title>
+  </head>
+  <body>
+    <div class="app-wrapper">
+      <header class="main-header">
+        <h1 class="title">JicroSoft Sh*t Music</h1>
+      </header>
+      <nav class="menu-bar">
+        <ul>
+          <li>
+            <button id="btn-new">
+              <span class="icon">note_add</span>
+              New
+            </button>
+          </li>
+          <li>
+            <button id="btn-save">
+              <span class="icon">save</span>
+              Save
+            </button>
+          </li>
+          <li>
+            <button id="btn-open">
+              <span class="icon">file_open</span>
+              Open
+            </button>
+          </li>
+          <li>
+            <button id="btn-preview">
+              <span class="icon">play_circle</span>
+              Preview
+            </button>
+          </li>
+        </ul>
+        <div class="last-visit">
+          <strong>Last Visit:</strong>
+          <span id="last-visit">n/a</span>
+        </div>
+      </nav>
+      <main class="document-wrapper">
+        <div class="document-canvas">
+          <div id="toolbar">
+            <ul>
+              <li>
+                <div
+                  data-note-type="1"
+                  class="note-control note-1"
+                  draggable="true"
+                >
+                  <img src="images/1-note.svg" alt="" />
+                </div>
+              </li>
+              <li>
+                <div
+                  data-note-type="1"
+                  data-note-accidental="s"
+                  class="note-control note-1s"
+                  draggable="true"
+                >
+                  <img src="images/1s-note.svg" alt="" />
+                </div>
+              </li>
+              <li>
+                <div
+                  data-note-type="2"
+                  data-note-accidental=""
+                  class="note-control"
+                  draggable="true"
+                >
+                  <img src="images/2-note.svg" alt="" />
+                </div>
+              </li>
+              <li>
+                <div
+                  data-note-type="2"
+                  data-note-accidental="s"
+                  class="note-control"
+                  draggable="true"
+                >
+                  <img src="images/2s-note.svg" alt="" />
+                </div>
+              </li>
+              <li>
+                <div
+                  data-note-type="4"
+                  data-note-accidental=""
+                  class="note-control"
+                  draggable="true"
+                >
+                  <img src="images/4-note.svg" alt="" />
+                </div>
+              </li>
+              <li>
+                <div
+                  data-note-type="4"
+                  data-note-accidental="s"
+                  class="note-control"
+                  draggable="true"
+                >
+                  <img src="images/4s-note.svg" alt="" />
+                </div>
+              </li>
+              <li>
+                <div
+                  data-note-type="8"
+                  data-note-accidental=""
+                  class="note-control"
+                  draggable="true"
+                >
+                  <img src="images/8-note.svg" alt="" />
+                </div>
+              </li>
+              <li>
+                <div
+                  data-note-type="8"
+                  data-note-accidental="s"
+                  class="note-control"
+                  draggable="true"
+                >
+                  <img src="images/8s-note.svg" alt="" />
+                </div>
+              </li>
+              <li>
+                <div
+                  data-note-type="16"
+                  data-note-accidental=""
+                  class="note-control"
+                  draggable="true"
+                >
+                  <img src="images/16-note.svg" alt="" />
+                </div>
+              </li>
+              <li>
+                <div
+                  data-note-type="16"
+                  data-note-accidental="s"
+                  class="note-control"
+                  draggable="true"
+                >
+                  <img src="images/16s-note.svg" alt="" />
+                </div>
+              </li>
+              <li>
+                <div
+                  data-note-type="1"
+                  data-note-rest="1"
+                  data-note-accidental=""
+                  class="note-control rest-1"
+                  draggable="true"
+                >
+                  <img src="images/1rest.png" alt="" />
+                </div>
+              </li>
+              <li>
+                <div
+                  data-note-type="2"
+                  data-note-rest="1"
+                  data-note-accidental=""
+                  class="note-control rest-2"
+                  draggable="true"
+                >
+                  <img src="images/2rest.png" alt="" />
+                </div>
+              </li>
+              <li>
+                <div
+                  data-note-type="4"
+                  data-note-rest="1"
+                  data-note-accidental=""
+                  class="note-control rest-4"
+                  draggable="true"
+                >
+                  <img src="images/4rest.png" alt="" />
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="page" id="page">
+            <input id="meta-title" type="text" value="Draft Score" />
+          </div>
+        </div>
+      </main>
+    </div>
+    <!-- <div
+      id="console"
+      style="
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: #ccc;
+        border: 1px solid #000;
+        width: 200px;
+        height: 100px;
+      "
+    ></div> -->
+    <div id="prompt" class="curtain">
+      <div class="prompt">
+        <button id="prompt-close" class="btn-close">
+          <span class="icon">close</span>
+        </button>
+        <div class="prompt-content">
+          <p class="prompt-title" id="prompt-title">Prompt Title</p>
+          <p><input id="prompt-text" type="text" /></p>
+          <button id="prompt-button">Ok</button>
+        </div>
+      </div>
+    </div>
+    <div id="alert" class="curtain">
+      <div class="alert">
+        <button id="alert-close" class="btn-close">
+          <span class="icon">close</span>
+        </button>
+        <div class="alert-content">
+          <p class="alert-title" id="alert-title">Prompt Title</p>
+          <button id="alert-button">Ok</button>
+        </div>
+      </div>
+    </div>
+    <div id="load" class="curtain">
+      <div class="load">
+        <button id="load-close" class="btn-close">
+          <span class="icon">close</span>
+        </button>
+        <div class="load-content">
+          <p class="load-title" id="load-title">Load Score</p>
+          <ul id="load-list"></ul>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
