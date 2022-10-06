@@ -1,22 +1,30 @@
-let nav = document.getElementById("nav");
+let dropdown = document.getElementById("nav");
 let toggle = document.getElementById("toggle");
 
-window.addEventListener("click", handleClickOutside);
+/**
+ * handle what happens when user clicks outside dropdown
+ * @param {*} e
+ */
 function handleClickOutside(e) {
   if (
-    !nav.contains(e.target) &&
+    !dropdown.contains(e.target) &&
     e.target !== toggle &&
     !toggle.contains(e.target)
   ) {
-    nav.classList.add("hidden");
+    dropdown.classList.add("hidden");
   }
 }
+window.addEventListener("click", handleClickOutside);
 
-toggle.addEventListener("click", handleClickHamburger);
+/**
+ * hamburger click function
+ * @param {*} e
+ */
 function handleClickHamburger(e) {
   e.preventDefault();
-  nav.classList.toggle("hidden");
+  dropdown.classList.toggle("hidden");
 }
+toggle.addEventListener("click", handleClickHamburger);
 
 /**
  * Get all navs and attach click handler
@@ -51,6 +59,7 @@ function createNavClickHandler(nav) {
         targetContainer.parentNode.children[i].classList.add("hidden");
       }
       targetContainer.classList.remove("hidden");
+      dropdown.classList.add("hidden");
     }
   };
 }
