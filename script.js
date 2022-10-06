@@ -1,3 +1,23 @@
+let nav = document.getElementById("nav");
+let toggle = document.getElementById("toggle");
+
+window.addEventListener("click", handleClickOutside);
+function handleClickOutside(e) {
+  if (
+    !nav.contains(e.target) &&
+    e.target !== toggle &&
+    !toggle.contains(e.target)
+  ) {
+    nav.classList.add("hidden");
+  }
+}
+
+toggle.addEventListener("click", handleClickHamburger);
+function handleClickHamburger(e) {
+  e.preventDefault();
+  nav.classList.toggle("hidden");
+}
+
 /**
  * Get all navs and attach click handler
  */
@@ -12,9 +32,9 @@ for (let i = 0; i < navs.length; i++) {
  */
 function createNavClickHandler(nav) {
   return (e) => {
-    e.preventDefault();
-
     if (e.target.nodeName === "A") {
+      e.preventDefault();
+
       // get the target container
       let targetContainer = document.getElementById(e.target.dataset["target"]);
 
