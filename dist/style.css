@@ -1084,19 +1084,9 @@ h3 {
   display: block;
 }
 
-.before\:hidden::before {
-  content: var(--tw-content);
-  display: none;
-}
-
 .after\:block::after {
   content: var(--tw-content);
   display: block;
-}
-
-.after\:hidden::after {
-  content: var(--tw-content);
-  display: none;
 }
 
 .hover\:bg-slate-200:hover {
@@ -1114,16 +1104,8 @@ h3 {
     position: static;
   }
 
-  .sm\:relative {
-    position: relative;
-  }
-
   .sm\:-left-3 {
     left: -0.75rem;
-  }
-
-  .sm\:top-16 {
-    top: 4rem;
   }
 
   .sm\:top-0 {
@@ -1159,10 +1141,6 @@ h3 {
     align-self: flex-end;
   }
 
-  .sm\:border-0 {
-    border-width: 0px;
-  }
-
   .sm\:text-left {
     text-align: left;
   }
@@ -1171,11 +1149,6 @@ h3 {
     --tw-shadow: 0 0 #0000;
     --tw-shadow-colored: 0 0 #0000;
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-  }
-
-  .sm\:before\:block::before {
-    content: var(--tw-content);
-    display: block;
   }
 
   .sm\:before\:hidden::before {
